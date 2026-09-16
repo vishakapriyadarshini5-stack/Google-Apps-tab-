@@ -1,0 +1,352 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Drawer</title>
+
+  <style>
+    /* ---------- BASIC PAGE ---------- */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, "Segoe UI", sans-serif;
+      background: #f5f6f8;
+      color: #202124;
+      padding: 45px;
+    }
+
+    /* ---------- MAIN CONTAINER ---------- */
+
+    .drawer {
+      max-width: 1100px;
+      min-height: calc(100vh - 90px);
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 35px;
+    }
+
+    .title {
+      font-size: 38px;
+      font-weight: 650;
+      letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+      margin-top: 5px;
+      color: #858990;
+      font-size: 14px;
+    }
+
+    /* ---------- APP ROWS ---------- */
+
+    .apps {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .app {
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 18px;
+      padding: 18px 22px;
+      min-width: 150px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .app:hover {
+      transform: translateY(-3px);
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .app-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .app-description {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #90949b;
+    }
+
+    /* ---------- CALM EMPTY SPACE ---------- */
+
+    .calm-space {
+      flex: 1;
+      min-height: 300px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* The little floating decoration */
+
+    .orb {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(255, 255, 255, 0.95),
+          rgba(220, 225, 235, 0.55),
+          rgba(190, 198, 212, 0.2)
+        );
+
+      filter: blur(1px);
+
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .orb::after {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      border: 1px solid rgba(120, 130, 145, 0.08);
+      transform: translate(-50px, -50px);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* ---------- SECTION TITLE ---------- */
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8a8e95;
+      margin-bottom: 14px;
+      letter-spacing: 0.4px;
+    }
+
+    /* ---------- ADD BUTTON ---------- */
+
+    .add-button {
+      border: 1px dashed #bfc3c9;
+      background: transparent;
+      color: #777c84;
+
+      border-radius: 18px;
+      padding: 18px 22px;
+
+      font-family: inherit;
+      font-size: 14px;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        border 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .add-button:hover {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: #999ea6;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 650px) {
+      body {
+        padding: 25px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+
+      .app {
+        flex: 1;
+        min-width: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="drawer">
+
+    <!-- HEADER -->
+
+    <header class="header">
+      <div>
+        <h1 class="title">Drawer</h1>
+        <p class="subtitle">Your little digital space.</p>
+      </div>
+    </header>
+
+
+    <!-- GOOGLE WORK APPS -->
+
+    <section>
+      <div class="apps">
+
+        <a
+          class="app"
+          href="https://docs.google.com"
+          target="_blank"
+        >
+          <div class="app-name">Google Docs</div>
+          <div class="app-description">Documents</div>
+        </a>
+
+
+        <a
+          class="app"
+          href="https://sheets.google.com"
+          target="_blank"
+        >
+          <div class="app-name">Google Sheets</div>
+          <div class="app-description">Spreadsheets</div>
+        </a>
+
+
+        <a
+          class="app"
+          href="https://slides.google.com"
+          target="_blank"
+        >
+          <div class="app-name">Google Slides</div>
+          <div class="app-description">Presentations</div>
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- BIG CALM EMPTY AREA -->
+
+    <section class="calm-space">
+
+      <div class="orb"></div>
+
+    </section>
+
+
+    <!-- OTHER WORK APPS -->
+
+    <section>
+
+      <div class="section-title">
+        Other work apps
+      </div>
+
+      <div class="apps">
+
+        <a
+          class="app"
+          href="https://github.com"
+          target="_blank"
+        >
+          <div class="app-name">GitHub</div>
+          <div class="app-description">Code & projects</div>
+        </a>
+
+
+        <a
+          class="app"
+          href="https://www.perplexity.ai"
+          target="_blank"
+        >
+          <div class="app-name">Perplexity</div>
+          <div class="app-description">AI search</div>
+        </a>
+
+
+        <a
+          class="app"
+          href="https://web.whatsapp.com"
+          target="_blank"
+        >
+          <div class="app-name">WhatsApp</div>
+          <div class="app-description">Messages</div>
+        </a>
+
+
+        <!-- ADD BUTTON -->
+
+        <button
+          class="add-button"
+          onclick="addApp()"
+        >
+          ＋ Add app / URL
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ---------- JAVASCRIPT ---------- -->
+
+  <script>
+
+    function addApp() {
+
+      const name = prompt("What should the app be called?");
+
+      if (!name) {
+        return;
+      }
+
+      const url = prompt("Paste the website URL:");
+
+      if (!url) {
+        return;
+      }
+
+      alert(
+        "Nice! " + name +
+        " would be added here in the next version."
+      );
+    }
+
+  </script>
+
+</body>
+</html>
